@@ -774,7 +774,7 @@ mainScene.updatePlayer = function()
 
 mainScene.enter = function()
 {
-    if(cursors.space.isDown || this.input.mousePointer.isDown)
+    if(cursors.space.isDown || this.input.activePointer.isDown)
     {
         return true;
     }
