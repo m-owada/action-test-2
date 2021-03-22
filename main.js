@@ -26,7 +26,6 @@ titleScene.preload = function()
     
     
     
-    this.load.html("login", "form/login.html");
     
     
     
@@ -40,24 +39,25 @@ titleScene.create = function()
     var height = this.game.canvas.height;
     
     
-    var title = this.add.image(160, 100, "title");
+    var title = this.add.image(160, 80, "title");
     
-    var text1 = this.add.text(76, 150, "NAME", { font: "12px sans-serif", color: "#ffffff" });
-    
-    var username = this.add.dom(160, 180).createFromHTML("<input type='text' name='username' size='20' maxlength='10' />").getChildByName("username");
-    
-    var text2 = this.add.text(76, 220, "PASSWORD", { font: "12px sans-serif", color: "#ffffff" });
-    
-    var password = this.add.dom(160, 250).createFromHTML("<input type='password' name='password' size='20' maxlength='10' />").getChildByName("password");
+    var html = "<div class='container'><form>"
+             + "<div class='form-group'><label class='text-white'>NAME</label><input type='text' name='username' class='form-control' maxlength='10'></div>"
+             + "<div class='form-group'><label class='text-white'>PASSWORD</label><input type='password' name='password' class='form-control' maxlength='10'></div>"
+             + "<div class='checkbox'><label class='text-white'><input type='checkbox' name='register'> 新しくゲームを始める</label></div>"
+             + "</form></div>"
     
     
+    var element = this.add.dom(160, 240).createFromHTML(html);
     
-    var register = this.add.dom(90, 300).createFromHTML("<input type='checkbox' name='register' />").getChildByName("register");
+    var username = element.getChildByName("username");
+    var password = element.getChildByName("password");
+    var register = element.getChildByName("register");
     
-    var text3 = this.add.text(104, 291, "新しくゲームを始める", { font: "12px sans-serif", color: "#ffffff" });
     
     
-    var login = this.add.sprite(160, 360, "button", 0).setInteractive();
+    
+    var login = this.add.sprite(160, 400, "button", 0).setInteractive();
     
     
     
